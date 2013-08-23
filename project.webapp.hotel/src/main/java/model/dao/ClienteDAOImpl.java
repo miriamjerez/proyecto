@@ -25,38 +25,7 @@ public class ClienteDAOImpl implements ClienteDAO {
 
 	public boolean comprobarDisp(Instalacion instalacion, Date fechaInicio,
 			Date fechaFin) {
-		/* Cada habitación tiene una lista de reservas.
-		 * dicha lista está ordenada. Si
-		 *  */
-		boolean disp = false;
-	
-		if(instalacion.getListaReservas().isEmpty()){
-			return true;
-		}else{
-			//Comprobamos si la fecha de fin de nuestra reserva es anterior a todas las de la lista,si es asi añadimos la reserva
-			if(instalacion.getListaReservas().first().getFechaInicio().after(fechaFin)){
-				
-					disp=  true;
-			}else{
-				/*Recorremos toda la lista, de forma que encuentre el primero en el cual 
-				la fecha fin sea anterior a la fecha inicio que quiero hacer la reserva
-				y cuando la encuentra comprueba que la fecha inicio de la siguiente reserva
-				sea posterior que la fecha fin de mi reserva*/
-					Iterator<Reserva> it = instalacion.getListaReservas().iterator();
-					while(it.hasNext()){
-						
-						if(it.next().getFechaFin().before(fechaInicio)){
-							if(it.next().getFechaInicio().after(fechaFin))
-								disp = true;
-							else
-								disp =  false;
-						}
-				}
-		}
-	}
-		return disp;
 		
-	}
 
 	@Override
 	public String darAltaCliente(Cliente c) {

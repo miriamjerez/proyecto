@@ -12,7 +12,9 @@ import model.entities.Servicio;
 
 public interface ClienteDAO {
 	
-	public boolean comprobarDisp(Instalacion instalacion, Date fechaInicio, Date fechaFin);
+	/*public boolean comprobarDisp(Instalacion instalacion, Date fechaInicio, Date fechaFin);
+	 * Lo ponemos en el servicio no aquí
+	 */
 	public String darAltaCliente(Cliente c);
 	public String modificarCliente(Cliente c);
 	public String darBajaCliente(Cliente c);
